@@ -1,0 +1,485 @@
+<root>
+  <pysimCoder>
+    <pysimCoderVersion>0.9</pysimCoderVersion>
+  </pysimCoder>
+  <Date>
+    <SavingDate>21.04.2022 - 21:11:29</SavingDate>
+  </Date>
+  <Simulation>
+    <Template>rt_pi.tmf</Template>
+    <Ts>0.001</Ts>
+    <AddObj></AddObj>
+    <ParScript></ParScript>
+    <Tf>10</Tf>
+    <Priority></Priority>
+  </Simulation>
+  <block>
+    <name>Gain0</name>
+    <inp>1</inp>
+    <outp>1</outp>
+    <inset>1</inset>
+    <outset>1</outset>
+    <icon>MULT</icon>
+    <params>matmultBlk|Gains: 5000</params>
+    <help>Implements the multiplication of the input with a matrix of coefficients.
+</help>
+    <width>80</width>
+    <flip>0</flip>
+    <posX>220.0</posX>
+    <posY>20.0</posY>
+  </block>
+  <block>
+    <name>TCPsocketTX</name>
+    <inp>4</inp>
+    <outp>0</outp>
+    <inset>1</inset>
+    <outset>0</outset>
+    <icon>TCPSOCKET</icon>
+    <params>TCPsocketTxBlk|IP Addr: '147.32.86.220'|Port: 5000</params>
+    <help>This block implements a TCP sender
+
+Parameters
+IP address of the receiver
+Port
+</help>
+    <width>80</width>
+    <flip>0</flip>
+    <posX>1040.0</posX>
+    <posY>170.0</posY>
+  </block>
+  <block>
+    <name>Phase3Motor</name>
+    <inp>6</inp>
+    <outp>7</outp>
+    <inset>0</inset>
+    <outset>0</outset>
+    <icon>MOT</icon>
+    <params>P3MotBlk</params>
+    <help>Block for controlling 3-Phase DC Motor using SPI connection in RPi
+
+
+
+</help>
+    <width>80</width>
+    <flip>0</flip>
+    <posX>430.0</posX>
+    <posY>290.0</posY>
+  </block>
+  <block>
+    <name>PWM_EN1</name>
+    <inp>0</inp>
+    <outp>1</outp>
+    <inset>0</inset>
+    <outset>0</outset>
+    <icon>CONST</icon>
+    <params>constBlk|Value: 1</params>
+    <help>This block implements a constant input signal.
+</help>
+    <width>80</width>
+    <flip>0</flip>
+    <posX>80.0</posX>
+    <posY>590.0</posY>
+  </block>
+  <block>
+    <name>PWM_EN0</name>
+    <inp>0</inp>
+    <outp>1</outp>
+    <inset>0</inset>
+    <outset>0</outset>
+    <icon>CONST</icon>
+    <params>constBlk|Value: 1</params>
+    <help>This block implements a constant input signal.
+</help>
+    <width>80</width>
+    <flip>0</flip>
+    <posX>80.0</posX>
+    <posY>500.0</posY>
+  </block>
+  <block>
+    <name>PWM_EN</name>
+    <inp>0</inp>
+    <outp>1</outp>
+    <inset>0</inset>
+    <outset>0</outset>
+    <icon>CONST</icon>
+    <params>constBlk|Value: 1</params>
+    <help>This block implements a constant input signal.
+</help>
+    <width>80</width>
+    <flip>0</flip>
+    <posX>80.0</posX>
+    <posY>410.0</posY>
+  </block>
+  <block>
+    <name>Integral</name>
+    <inp>1</inp>
+    <outp>1</outp>
+    <inset>0</inset>
+    <outset>0</outset>
+    <icon>INTG</icon>
+    <params>intgBlk|Initial conditions: 0</params>
+    <help>This block implements a continous integration block
+
+Parameters:
+Initial condition
+</help>
+    <width>80</width>
+    <flip>0</flip>
+    <posX>-640.0</posX>
+    <posY>210.0</posY>
+  </block>
+  <block>
+    <name>Inverse Park</name>
+    <inp>3</inp>
+    <outp>2</outp>
+    <inset>0</inset>
+    <outset>0</outset>
+    <icon>INVERSE_PARK</icon>
+    <params>park_inverseBlk</params>
+    <help>This block performs inverse Park transformation.
+First two inputs are for rotating reference frame quantities, the third one is for the rotation angle.
+</help>
+    <width>80</width>
+    <flip>0</flip>
+    <posX>-50.0</posX>
+    <posY>230.0</posY>
+  </block>
+  <block>
+    <name>Const0</name>
+    <inp>0</inp>
+    <outp>1</outp>
+    <inset>0</inset>
+    <outset>0</outset>
+    <icon>CONST</icon>
+    <params>constBlk|Value: 0</params>
+    <help>This block implements a constant input signal.
+</help>
+    <width>80</width>
+    <flip>0</flip>
+    <posX>-310.0</posX>
+    <posY>20.0</posY>
+  </block>
+  <block>
+    <name>Inverse Clarke</name>
+    <inp>2</inp>
+    <outp>3</outp>
+    <inset>0</inset>
+    <outset>0</outset>
+    <icon>INVERSE_CLARKE</icon>
+    <params>clarke_inverseBlk</params>
+    <help>This block performs inverse Clarke transformation.
+</help>
+    <width>80</width>
+    <flip>0</flip>
+    <posX>150.0</posX>
+    <posY>230.0</posY>
+  </block>
+  <block>
+    <name>Gain</name>
+    <inp>1</inp>
+    <outp>1</outp>
+    <inset>1</inset>
+    <outset>1</outset>
+    <icon>MULT</icon>
+    <params>matmultBlk|Gains: 1.0471975511965976</params>
+    <help>Implements the multiplication of the input with a matrix of coefficients.
+</help>
+    <width>80</width>
+    <flip>0</flip>
+    <posX>880.0</posX>
+    <posY>390.0</posY>
+  </block>
+  <block>
+    <name>Const</name>
+    <inp>0</inp>
+    <outp>1</outp>
+    <inset>0</inset>
+    <outset>0</outset>
+    <icon>CONST</icon>
+    <params>constBlk|Value: -2</params>
+    <help>This block implements a constant input signal.
+</help>
+    <width>80</width>
+    <flip>0</flip>
+    <posX>530.0</posX>
+    <posY>510.0</posY>
+  </block>
+  <block>
+    <name>Sum</name>
+    <inp>2</inp>
+    <outp>1</outp>
+    <inset>1</inset>
+    <outset>0</outset>
+    <icon>SUM</icon>
+    <params>sumBlk|Gains: [1,1]</params>
+    <help>This block get the weighted sum of the input signals.
+
+It can have more than 2 inputs.
+</help>
+    <width>80</width>
+    <flip>0</flip>
+    <posX>680.0</posX>
+    <posY>390.0</posY>
+  </block>
+  <block>
+    <name>PulseGenerator</name>
+    <inp>0</inp>
+    <outp>1</outp>
+    <inset>0</inset>
+    <outset>0</outset>
+    <icon>SQUARE</icon>
+    <params>squareBlk|Amplitude: 2000|Period: 20|Width: 10|Bias: -1000|Delay: 5</params>
+    <help>This block implements a Pulse input signal
+
+Parameters:
+Amplitude
+Period (in sec)
+Width of the High signal
+Bias
+Delay
+</help>
+    <width>80</width>
+    <flip>0</flip>
+    <posX>-790.0</posX>
+    <posY>210.0</posY>
+  </block>
+  <block>
+    <name>Discrete PID</name>
+    <inp>1</inp>
+    <outp>1</outp>
+    <inset>0</inset>
+    <outset>0</outset>
+    <icon>PID</icon>
+    <params>discretePIDBlk|Proportional gain: 0.0008|Integral gain: 0|Derivative gain: 0|Min value: -0.25|Max value: 0.25</params>
+    <help>Discrete PID controller
+
+Parameters
+Proportional gain
+Integral gain
+Discrete gain
+Min value: minimal output value
+Max value: maximal output value
+</help>
+    <width>80</width>
+    <flip>0</flip>
+    <posX>-330.0</posX>
+    <posY>230.0</posY>
+  </block>
+  <block>
+    <name>Sub</name>
+    <inp>2</inp>
+    <outp>1</outp>
+    <inset>0</inset>
+    <outset>0</outset>
+    <icon>PM</icon>
+    <params>sumBlk|Gains: [1,-1]</params>
+    <help>This block get the weighted sum of the input signals.
+
+It can have more than 2 inputs.
+</help>
+    <width>80</width>
+    <flip>0</flip>
+    <posX>-480.0</posX>
+    <posY>230.0</posY>
+  </block>
+  <connection>
+    <pos1X>920.0</pos1X>
+    <pos1Y>390.0</pos1Y>
+    <pos2X>1000.0</pos2X>
+    <pos2Y>230.0</pos2Y>
+    <pt>940.0,390.0</pt>
+    <pt>940.0,230.0</pt>
+  </connection>
+  <connection>
+    <pos1X>260.0</pos1X>
+    <pos1Y>20.0</pos1Y>
+    <pos2X>1000.0</pos2X>
+    <pos2Y>190.0</pos2Y>
+    <pt>630.0,20.0</pt>
+    <pt>630.0,190.0</pt>
+  </connection>
+  <connection>
+    <pos1X>-290.0</pos1X>
+    <pos1Y>230.0</pos1Y>
+    <pos2X>180.0</pos2X>
+    <pos2Y>20.0</pos2Y>
+    <pt>-290.0,230.0</pt>
+    <pt>-160.0,230.0</pt>
+    <pt>-160.0,20.0</pt>
+  </connection>
+  <connection>
+    <pos1X>470.0</pos1X>
+    <pos1Y>290.0</pos1Y>
+    <pos2X>1000.0</pos2X>
+    <pos2Y>150.0</pos2Y>
+    <pt>730.0,290.0</pt>
+    <pt>730.0,150.0</pt>
+  </connection>
+  <connection>
+    <pos1X>-600.0</pos1X>
+    <pos1Y>210.0</pos1Y>
+    <pos2X>1000.0</pos2X>
+    <pos2Y>110.0</pos2Y>
+    <pt>-570.0,210.0</pt>
+    <pt>-570.0,-90.0</pt>
+    <pt>-390.0,-90.0</pt>
+    <pt>850.0,-90.0</pt>
+    <pt>850.0,110.0</pt>
+  </connection>
+  <connection>
+    <pos1X>470.0</pos1X>
+    <pos1Y>290.0</pos1Y>
+    <pos2X>-520.0</pos2X>
+    <pos2Y>250.0</pos2Y>
+    <pt>800.0,290.0</pt>
+    <pt>800.0,280.0</pt>
+    <pt>800.0,780.0</pt>
+    <pt>780.0,780.0</pt>
+    <pt>-580.0,780.0</pt>
+    <pt>-580.0,250.0</pt>
+  </connection>
+  <connection>
+    <pos1X>-600.0</pos1X>
+    <pos1Y>210.0</pos1Y>
+    <pos2X>-520.0</pos2X>
+    <pos2Y>210.0</pos2Y>
+    <pt>-560.0,210.0</pt>
+    <pt>-560.0,210.0</pt>
+  </connection>
+  <connection>
+    <pos1X>920.0</pos1X>
+    <pos1Y>390.0</pos1Y>
+    <pos2X>-90.0</pos2X>
+    <pos2Y>270.0</pos2Y>
+    <pt>950.0,390.0</pt>
+    <pt>950.0,670.0</pt>
+    <pt>-120.0,670.0</pt>
+    <pt>-120.0,270.0</pt>
+  </connection>
+  <connection>
+    <pos1X>-270.0</pos1X>
+    <pos1Y>20.0</pos1Y>
+    <pos2X>-90.0</pos2X>
+    <pos2Y>190.0</pos2Y>
+    <pt>-230.0,20.0</pt>
+    <pt>-230.0,190.0</pt>
+  </connection>
+  <connection>
+    <pos1X>120.0</pos1X>
+    <pos1Y>410.0</pos1Y>
+    <pos2X>390.0</pos2X>
+    <pos2Y>310.0</pos2Y>
+    <pt>260.0,410.0</pt>
+    <pt>260.0,310.0</pt>
+  </connection>
+  <connection>
+    <pos1X>120.0</pos1X>
+    <pos1Y>500.0</pos1Y>
+    <pos2X>390.0</pos2X>
+    <pos2Y>350.0</pos2Y>
+    <pt>300.0,500.0</pt>
+    <pt>300.0,490.0</pt>
+    <pt>300.0,350.0</pt>
+    <pt>330.0,350.0</pt>
+    <pt>330.0,350.0</pt>
+  </connection>
+  <connection>
+    <pos1X>120.0</pos1X>
+    <pos1Y>590.0</pos1Y>
+    <pos2X>390.0</pos2X>
+    <pos2Y>390.0</pos2Y>
+    <pt>330.0,590.0</pt>
+    <pt>330.0,580.0</pt>
+    <pt>330.0,390.0</pt>
+    <pt>340.0,390.0</pt>
+    <pt>340.0,390.0</pt>
+  </connection>
+  <connection>
+    <pos1X>-10.0</pos1X>
+    <pos1Y>210.0</pos1Y>
+    <pos2X>110.0</pos2X>
+    <pos2Y>210.0</pos2Y>
+    <pt>50.0,210.0</pt>
+    <pt>50.0,210.0</pt>
+  </connection>
+  <connection>
+    <pos1X>-10.0</pos1X>
+    <pos1Y>250.0</pos1Y>
+    <pos2X>110.0</pos2X>
+    <pos2Y>250.0</pos2Y>
+    <pt>50.0,250.0</pt>
+    <pt>50.0,250.0</pt>
+  </connection>
+  <connection>
+    <pos1X>190.0</pos1X>
+    <pos1Y>190.0</pos1Y>
+    <pos2X>390.0</pos2X>
+    <pos2Y>190.0</pos2Y>
+    <pt>290.0,190.0</pt>
+    <pt>290.0,190.0</pt>
+  </connection>
+  <connection>
+    <pos1X>190.0</pos1X>
+    <pos1Y>230.0</pos1Y>
+    <pos2X>390.0</pos2X>
+    <pos2Y>230.0</pos2Y>
+    <pt>290.0,230.0</pt>
+    <pt>290.0,230.0</pt>
+  </connection>
+  <connection>
+    <pos1X>190.0</pos1X>
+    <pos1Y>270.0</pos1Y>
+    <pos2X>390.0</pos2X>
+    <pos2Y>270.0</pos2Y>
+    <pt>290.0,270.0</pt>
+    <pt>290.0,270.0</pt>
+  </connection>
+  <connection>
+    <pos1X>470.0</pos1X>
+    <pos1Y>410.0</pos1Y>
+    <pos2X>640.0</pos2X>
+    <pos2Y>370.0</pos2Y>
+    <pt>560.0,410.0</pt>
+    <pt>560.0,370.0</pt>
+  </connection>
+  <connection>
+    <pos1X>570.0</pos1X>
+    <pos1Y>510.0</pos1Y>
+    <pos2X>640.0</pos2X>
+    <pos2Y>410.0</pos2Y>
+    <pt>610.0,510.0</pt>
+    <pt>610.0,410.0</pt>
+  </connection>
+  <connection>
+    <pos1X>720.0</pos1X>
+    <pos1Y>390.0</pos1Y>
+    <pos2X>840.0</pos2X>
+    <pos2Y>390.0</pos2Y>
+    <pt>790.0,390.0</pt>
+    <pt>790.0,390.0</pt>
+  </connection>
+  <connection>
+    <pos1X>-750.0</pos1X>
+    <pos1Y>210.0</pos1Y>
+    <pos2X>-680.0</pos2X>
+    <pos2Y>210.0</pos2Y>
+    <pt>-710.0,210.0</pt>
+    <pt>-710.0,210.0</pt>
+  </connection>
+  <connection>
+    <pos1X>-290.0</pos1X>
+    <pos1Y>230.0</pos1Y>
+    <pos2X>-90.0</pos2X>
+    <pos2Y>230.0</pos2Y>
+    <pt>-290.0,230.0</pt>
+    <pt>-290.0,230.0</pt>
+  </connection>
+  <connection>
+    <pos1X>-440.0</pos1X>
+    <pos1Y>230.0</pos1Y>
+    <pos2X>-370.0</pos2X>
+    <pos2Y>230.0</pos2Y>
+    <pt>-400.0,230.0</pt>
+    <pt>-400.0,230.0</pt>
+  </connection>
+</root>
